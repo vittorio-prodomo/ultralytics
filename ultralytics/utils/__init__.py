@@ -1334,7 +1334,7 @@ class SettingsManager(JSONDict):
         /new/runs/dir
     """
 
-    def __init__(self, file=SETTINGS_FILE, version="0.0.6"):
+    def __init__(self, file=SETTINGS_FILE, version="0.0.7"):
         """Initialize the SettingsManager with default settings and load user settings."""
         import hashlib
         import uuid
@@ -1349,7 +1349,7 @@ class SettingsManager(JSONDict):
         self.defaults = {
             "settings_version": version,  # Settings schema version
             "datasets_dir": str(datasets_root / "datasets"),  # Datasets directory
-            "weights_dir": str(root / "weights"),  # Model weights directory
+            "weights_dir": str(Path.home() / ".cache" / "ultralytics"),  # Model weights cache
             "runs_dir": str(root / "runs"),  # Experiment runs directory
             "uuid": hashlib.sha256(str(uuid.getnode()).encode()).hexdigest(),  # SHA-256 anonymized UUID hash
             "sync": True,  # Enable synchronization
