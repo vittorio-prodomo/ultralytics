@@ -470,6 +470,7 @@ def attempt_download_asset(
                 safe_download(url=url, file=file, min_bytes=1e5, **kwargs)
 
         elif repo == GITHUB_ASSETS_REPO and name in GITHUB_ASSETS_NAMES:
+            file = Path(SETTINGS["weights_dir"]) / name
             safe_download(url=f"{download_url}/{release}/{name}", file=file, min_bytes=1e5, **kwargs)
 
         else:
