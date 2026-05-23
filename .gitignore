@@ -203,3 +203,6 @@ calibration_*.npy
 # Training logs
 args.yaml
 results.csv
+
+# Claude Code personal config (per-machine, never team-shared)
+.claude/settings.local.json
